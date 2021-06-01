@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="/imgfiles/kawahvillas/css/our-villas.css">
+
+<!-- Variables -->
+
+<eBD:VAR NAME="kawahvillasSearchVillas" DEFAULT="" />
+
+<!-- HTTP Request - Villas: GET /villas -->
+
+<eBD:HTTPGET VAR="dataHttpGet" URL="#[eBDProject.get_env('WP_URL')]/wp-json/wp/v2/st_rental?_embed" />
+<eBD:DESERIALIZE VAR="dataDeserialize" VALUE="$dataHttpGet" FROM="JSON" />
+
+<eBD:FOREACH ARRAY="dataDeserialize" ITERATOR="villa">
+	<eBD:SET VAR="villaId" VALUE="@villa{id}" />
+	<eBD:SET VAR="villaSlug" VALUE="@villa{slug}" />
+
+	<eBD:SET VAR="villaEmbedded" VALUE="@villa{_embedded}" />
+
+	<eBD:SET VAR="villaFeaturedMedia" VALUE="@villaEmbedded{wp:featuredmedia}" />
+	<eBD:SET VAR="villaFeaturedMediaItem" VALUE="@villaFeaturedMedia[0]" />
+	<eBD:SET VAR="villaFeaturedImage" VALUE="@villaFeaturedMediaItem{source_url}" />
+
+	<eBD:SET VAR="villaTitle" VALUE="@villa{title}" />
+	<eBD:SET VAR="villaTitleRendered" VALUE="@villaTitle{rendered}" />
+
+	<eBD:SET VAR="villaLocation" VALUE="@villa{location}" />
+
+	<eBD:SET VAR="villaGuests" VALUE="@villa{guests}" />
+	<eBD:SET VAR="villaBedrooms" VALUE="@villa{bedrooms}" />
+	<eBD:SET VAR="villaBeds" VALUE="@villa{beds}" />
+	<eBD:SET VAR="villaBathrooms" VALUE="@villa{bathrooms}" />
+
+	<eBD:SET VAR="kawahvillasSearchVillas" VALUE='
+		$kawahvillasSearchVillas
+
+		<div class="content grid-item flex flex-column">
+			<img class="result-image flex-item" src="$villaFeaturedImage">
+			<div class="result-text flex-item flex flex-column">
+				<a href="/villa/$villaId/$villaSlug"><h2 class="result-villa text-primary flex-item">$villaTitleRendered</h2></a>
+				<span id="result-location" class="result-location text-secondary flex-item">$villaLocation</span>
+				<div class="result-amenities flex-item grid">
+					<span class="result-guests text-secondary"><span class="text-bold">$villaGuests</span> Guests</span>
+					<span class="result-bedrooms text-secondary"><span class="text-bold">$villaBedrooms</span> Bedrooms</span>
+				</div>
+				<div class="result-amenities flex-item grid">
+					<span class="result-beds text-secondary"><span class="text-bold">$villaBeds</span> Beds</span>
+					<span class="result-bathrooms text-secondary"><span class="text-bold">$villaBathrooms</span> Bathrooms</span>
+				</div>
+			</div>
+		</div>
+	' />
+</eBD:FOREACH>
+
+<main>
+	<section id="kawahvillas-search-header" class="section-spacing">
+		<div class="grid">
+			<h1 class="text-primary grid-item">Your next luxury experience is here</h1>
+		</div>
+	</section>
+
+	<form id="kawahvillas-search-filters">
+		<div class="grid">
+			<input type="text" class="input-autocomplete search-location" id="search-location" name="search-location" value="" placeholder="Search Location" />
+			<input type="text" class="input-date search-checkin" id="search-checkin" name="search-checkin" value="" placeholder="Check-In Date" readonly />
+			<input type="text" class="input-date search-checkout" id="search-checkout" name="search-checkout" value="" placeholder="Check-Out Date" readonly />
+    </div>
+	</form>
+
+	<section id="kawahvillas-search-villas" class="section-spacing">
+		<div class="grid">
+			<eBD:OUT VALUE="$kawahvillasSearchVillas" />
+		</div>
+	</section>
+</main>
+
+<script defer src="/imgfiles/kawahvillas/js/our-villas.js"></script>

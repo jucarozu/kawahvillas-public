@@ -1,0 +1,41 @@
+<!-- Function Variables -->
+
+<eBD:VAR NAME="res" DEFAULT="" />
+
+<!-- 1. User - Sign Out -->
+
+<eBD:SET VAR="userHttpRequestParams" 
+    VALUE="JWT=%authToken" />
+
+<eBD:CURL REQUEST="POST" 
+    MSG="userHttpResponse" VAR="userHttpResponseStatus" DATA="$userHttpRequestParams" 
+    VALUE="#[eBDProject.get_env('WP_URL')]/?rest_route=/simple-jwt-login/v1/auth/revoke" />
+
+<eBD:SPLIT ARRAY="userHttpResponseData" VALUE="$userHttpResponse" CHAR="\n{" />
+<eBD:SET VAR="userHttpResponseHeaders" VALUE="@userHttpResponseData[0]" />
+<eBD:SET VAR="userHttpResponseBody" VALUE="{@userHttpResponseData[1]" />
+<eBD:SET VAR="res" VALUE="$userHttpResponseBody" />
+
+<eBD:IF EXPR="$userHttpResponseStatus != 200">
+    <eBD:RETURN VALUE="$res" />
+</eBD:IF>
+
+<eBD:DESERIALIZE VAR="userDeserialize" VALUE="$userHttpResponseBody" FROM="JSON" />
+
+<eBD:SET GLOBAL="authToken" VALUE="" />
+
+<eBD:SET GLOBAL="userId" VALUE="" />
+<eBD:SET GLOBAL="userName" VALUE="" />
+<eBD:SET GLOBAL="userEmail" VALUE="" />
+<eBD:SET GLOBAL="userCountry" VALUE="" />
+<eBD:SET GLOBAL="userPhone" VALUE="" />
+<eBD:SET GLOBAL="userStatus" VALUE="" />
+
+<eBD:SET GLOBAL="stripeCustomerId" VALUE="" />
+<eBD:SET GLOBAL="stripeProductId" VALUE="" />
+<eBD:SET GLOBAL="stripeSubscriptionId" VALUE="" />
+<eBD:SET GLOBAL="stripeSubscriptionStatus" VALUE="" />
+
+<!-- Function Return -->
+
+<eBD:RETURN VALUE="$res" />

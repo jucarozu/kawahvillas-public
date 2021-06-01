@@ -1,0 +1,21 @@
+<!-- API Endpoint Arguments -->
+
+<eBD:ARGS NAME="name" DEFAULT="" />
+<eBD:ARGS NAME="email" DEFAULT="" />
+<eBD:ARGS NAME="password" DEFAULT="" />
+<eBD:ARGS NAME="country" DEFAULT="" />
+<eBD:ARGS NAME="phone" DEFAULT="" />
+
+<!-- API Endpoint Variables -->
+
+<eBD:VAR NAME="res" DEFAULT="" />
+
+<!-- API Endpoint Logic -->
+
+<eBD:USE LIB="auth" />
+<eBD:CALL FUNCTION="signUp" VAR="signUpResponse" name="$name" email="$email" password="$password" country="$country" phone="$phone" />
+<eBD:SET VAR="res" VALUE="$signUpResponse" />
+
+<!-- API Endpoint Return -->
+
+<eBD:RETURN VALUE="$res" />

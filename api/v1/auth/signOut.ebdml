@@ -1,0 +1,13 @@
+<!-- API Endpoint Variables -->
+
+<eBD:VAR NAME="res" DEFAULT="" />
+
+<!-- API Endpoint Logic -->
+
+<eBD:USE LIB="auth" />
+<eBD:CALL FUNCTION="signOut" VAR="signOutResponse" />
+<eBD:SET VAR="res" VALUE="$signOutResponse" />
+
+<!-- API Endpoint Return -->
+
+<eBD:RETURN VALUE="$res" />

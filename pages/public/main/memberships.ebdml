@@ -1,0 +1,333 @@
+<link rel="stylesheet" href="/imgfiles/kawahvillas/css/memberships.css">
+
+<main>
+	<section id="kawahvillas-banner">
+		<div class="grid">
+			<div class="content content-with-background grid-item flex flex-column">
+				<h1 class="text-support">A luxury experience is waiting for you</h1>
+			</div>
+		</div>
+	</section>
+
+	<section id="kawahvillas-exploration" class="section-spacing">
+		<div class="grid">
+			<img class="logo-without-text grid-item" src="/imgfiles/kawahvillas/img/logo/kawahvillas_logo_without_text.svg"
+        alt="Explore the World with Kawah Villas">
+			<h2 class="text-secondary grid-item">Explore the world with Kawah Villas</h2>
+			<img class="image-with-text grid-item" src="/imgfiles/kawahvillas/img/img_33.jpg" alt="Explore the World with Kawah Villas">
+			<p class="text-secondary grid-item">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+				nec erat ut lacus bibendum sollicitudin vitae a mauris. Curabitur
+				luctus mauris ac sapien pulvinar lobortis. Proin a luctus tellus, sit
+				amet tincidunt lorem.
+			</p>
+			<span class="line-border grid-item"></span>
+		</div>
+	</section>
+
+	<section id="kawahvillas-memberships-primary" class="section-spacing">
+		<div class="grid">
+			<div class="header grid-item flex flex-column">
+				<h2 class="text-secondary flex-item">Three different memberships. The same luxury experience.</h2>
+				<p class="text-secondary flex-item">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec erat ut lacus bibendum
+					sollicitudin vitae a mauris. Curabitur luctus mauris ac sapien pulvinar lobortis. Proin a luctus
+					tellus, sit
+					amet tincidunt lorem.
+				</p>
+			</div>
+			<div id="card-membership-1" class="card-membership grid-item flex flex-column">
+				<h3 class="text-primary flex-item">Single Membership</h3>
+				<div class="price flex-item flex flex-row">
+					<h4 class="text-secondary">$90</h4><span> /month</span>
+				</div>
+				<ul class="fa-ul flex-item flex flex-column">
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						Includes one active trip at a time. When you check out, you can book your next trip.
+					</li>
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						Invite a guest to share the experience (Additional guest fees will be incurred).
+					</li>
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						Exclusive access to our destinations.
+					</li>
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						5 days and 4 nights.
+					</li>
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						No contract needed, cancel at any time.
+					</li>
+				</ul>
+				<a href="/single-membership" class="button button-primary-negative text-bold">Learn More</a>
+			</div>
+			<div id="card-membership-2" class="card-membership grid-item flex flex-column">
+				<h3 class="text-primary flex-item">Duo Membership</h3>
+				<div class="price flex-item flex flex-row">
+					<h4 class="text-secondary">$150</h4><span> /month</span>
+				</div>
+				<ul class="fa-ul flex-item flex flex-column">
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						Includes one active trip at a time for two people. When you check out, you can book your next
+						trip.
+					</li>
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						Invite a guest to share the experience (Additional guest fees will be incurred).
+					</li>
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						Exclusive access to our destinations.
+					</li>
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						5 days and 4 nights (Extensions available).
+					</li>
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						No contract needed, cancel at any time.
+					</li>
+				</ul>
+				<a href="/duo-membership" class="button button-primary-negative text-bold">Learn More</a>
+			</div>
+			<div id="card-membership-3" class="card-membership grid-item flex flex-column">
+				<h3 class="text-primary flex-item">Group Membership</h3>
+				<div class="price flex-item flex flex-row">
+					<h4 class="text-secondary">$450</h4><span> /month</span>
+				</div>
+				<ul class="fa-ul flex-item flex flex-column">
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						Travel with your family members and/or friends. (Limited to villa capacity).
+					</li>
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						Includes two active trips at a time.
+					</li>
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						Exclusive access to our destinations with reservation priority.
+					</li>
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						5 days and 4 nights (Extensions available).
+					</li>
+					<li class="text-secondary flex-item">
+						<span class="fa-li"><i class="fas fa-check"></i></span>
+						No contract needed, cancel at any time.
+					</li>
+				</ul>
+				<a href="/group-membership" class="button button-primary-negative text-bold">Learn More</a>
+			</div>
+		</div>
+	</section>
+
+	<section id="kawahvillas-faq">
+		<div class="grid">
+			<h2 class="text-primary grid-item">Frequently Asked Questions about the Memberships</h2>
+			<!-- <div class="tabs flex-item flex flex-column">
+				<div class="tab flex flex-column">
+					<span class="line-border"></span>
+					<input class="tab-radio" type="radio" id="faq1" name="faq">
+					<label class="tab-label text-support text-bold flex flex-row" for="faq1">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit?
+					</label>
+					<div class="tab-content flex flex-column">
+						<img class="flex-item" src="/imgfiles/kawahvillas/img/img_34.jpg" alt="">
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+					</div>
+				</div>
+				<div class="tab flex flex-column">
+					<span class="line-border"></span>
+					<input class="tab-radio" type="radio" id="faq2" name="faq">
+					<label class="tab-label text-support text-bold flex flex-row" for="faq2">
+						Lacus bibendum sollicitudin vitae a mauris. Curabitur luctus mauris ac sapien?
+					</label>
+					<div class="tab-content flex flex-column">
+						<img class="flex-item" src="/imgfiles/kawahvillas/img/img_34.jpg" alt="">
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+					</div>
+				</div>
+				<div class="tab flex flex-column">
+					<span class="line-border"></span>
+					<input class="tab-radio" type="radio" id="faq3" name="faq">
+					<label class="tab-label text-support text-bold flex flex-row" for="faq3">
+						Vitae a mauris. Curabitur luctus mauris ac sapien pulvinar lobortis?
+					</label>
+					<div class="tab-content flex flex-column">
+						<img class="flex-item" src="/imgfiles/kawahvillas/img/img_34.jpg" alt="">
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+					</div>
+				</div>
+				<div class="tab flex flex-column">
+					<span class="line-border"></span>
+					<input class="tab-radio" type="radio" id="faq4" name="faq">
+					<label class="tab-label text-support text-bold flex flex-row" for="faq4">
+						Vitae a mauris. Curabitur luctus mauris ac sapien pulvinar lobortis?
+					</label>
+					<div class="tab-content flex flex-column">
+						<img class="flex-item" src="/imgfiles/kawahvillas/img/img_34.jpg" alt="">
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+					</div>
+				</div>
+				<div class="tab flex flex-column">
+					<span class="line-border"></span>
+					<input class="tab-radio" type="radio" id="faq5" name="faq">
+					<label class="tab-label text-support text-bold flex flex-row" for="faq5">
+						Sit amet, consectetur adipiscing elit. Aliquam nec erat ut lacus bibendu?
+					</label>
+					<div class="tab-content flex flex-column">
+						<img class="flex-item" src="/imgfiles/kawahvillas/img/img_34.jpg" alt="">
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+					</div>
+				</div>
+				<div class="tab flex flex-column">
+					<span class="line-border"></span>
+					<input class="tab-radio" type="radio" id="faq6" name="faq">
+					<label class="tab-label text-support text-bold flex flex-row" for="faq6">
+						Curabitur luctus mauris ac sapien pulvinar lobortis roin a luctus tellus, sit amet tincidunt lorem?
+					</label>
+					<div class="tab-content flex flex-column">
+						<img class="flex-item" src="/imgfiles/kawahvillas/img/img_34.jpg" alt="">
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+						<p class="text-support flex-item">
+							Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Aliquam nec erat ut lacus
+							bibendum sollicitudin vitae a mauris. Curabitur
+							luctus mauris ac sapien pulvinar lobortis.
+						</p>
+					</div>
+				</div>
+				<span class="line-border"></span>
+			</div> -->
+			<img class="image-with-text" src="/imgfiles/kawahvillas/img/img_34.jpg" alt="">
+    	</div>
+	</section>
+
+	<section id="kawahvillas-destinations" class="section-spacing">
+		<div class="grid">
+			<div class="header grid-item flex flex-column">
+				<img class="logo-without-text flex-item" src="/imgfiles/kawahvillas/img/logo/kawahvillas_logo_without_text.svg"
+          			alt="Kawahvillas - One Membership. Unlimited Experiences.">
+				<h2 class="text-secondary flex-item">Take a look at our destinations</h2>
+				<p class="text-secondary flex-item">
+					From warm to cold experiences, with Kawah Villas you get access to the perfect destinations. 
+					Enjoy your vacations in our exclusive luxury locations.
+				</p>
+			</div>
+			<div id="card-location-1" class="card-location content-with-card-image grid-item flex flex-column">
+				<h3 class="text-support flex-item">Dominican Republic</h1>
+			</div>
+			<div id="card-location-2" class="card-location content-with-card-image grid-item flex flex-column">
+				<h3 class="text-support flex-item">Jamaica</h1>
+			</div>
+			<div id="card-location-3" class="card-location content-with-card-image grid-item flex flex-column">
+				<h3 class="text-support flex-item">Canada</h1>
+			</div>
+			<div id="card-location-4" class="card-location content-with-card-image grid-item flex flex-column">
+				<h3 class="text-support flex-item">Colombia</h1>
+			</div>
+		</div>
+	</section>
+</main>

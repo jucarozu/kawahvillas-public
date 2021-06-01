@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="/imgfiles/kawahvillas/css/about-us.css">
+
+<main>
+  <section id="kawahvillas-banner">
+    <div class="grid">
+      <div class="content content-with-background grid-item flex flex-column">
+        <h1 class="text-support">Explore the world with us</h1>
+      </div>
+    </div>
+  </section>
+
+  <section id="kawahvillas-objective" class="section-spacing">
+    <div class="grid">
+      <div class="content grid-item flex flex-column">
+        <img class="logo-without-text flex-item" src="/imgfiles/kawahvillas/img/logo/kawahvillas_logo_without_text.svg"
+          alt="Our objective is to change the industry">
+        <h2 class="text-secondary flex-item">Our objective is to change the industry</h2>
+        <p class="text-secondary flex-item">
+          We decided to build this company because we saw the high demand for travelling. 
+          We know that it costs a lot of money unfortunately 
+          and many people cannot afford to see the beauty of our planet.
+        </p>
+        <p class="text-secondary flex-item">
+          Our goal is to offer a new way to travel. 
+          At Kawah Villas, we want to give people the opportunity 
+          to explore the world without spending ridiculous amounts of money.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kawahvillas-mission" class="section-spacing">
+    <div class="grid">
+      <div class="content-header grid-item flex flex-column">
+        <h2 class="text-primary flex-item">Our mission</h2>
+        <h3 class="text-support flex-item">Create luxury experiences</h3>
+      </div>
+      <div class="content-images grid-item flex flex-row">
+        <img class="image-with-text content-with-image flex-item" src="/imgfiles/kawahvillas/img/img_39.jpg" alt="Create luxury experiences">
+        <img class="image-with-text content-with-image flex-item" src="/imgfiles/kawahvillas/img/img_40.jpg" alt="Create luxury experiences">
+      </div>
+      <div class="content-body grid-item flex flex-column">
+        <p class="text-support flex-item">
+          By building a membership business model, 
+          we are giving the opportunity to people 
+          to manage their vacations themselves, without any stress.
+          We know that planning trips can be a headache sometimes, 
+          especially when you have to manage your children's schedule, 
+          your partner's and your's. 
+          Overall, it comes with big responsibilities, 
+          but travelling is supposed to be fun and relaxing, 
+          not stressful! This is the problem we are solving.
+        </p>
+        <p class="text-support flex-item">
+          With our three different memberships, 
+          people can plan their trips in advance without spending huge one-time fees, 
+          they have unlimited access to all our different villas 
+          and they can bring along their loved ones to share the experience.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kawahvillas-story" class="section-spacing">
+    <div class="grid">
+      <div class="content-header grid-item flex flex-column">
+        <h2 class="text-primary flex-item">The search for a revolution</h2>
+        <h3 class="text-secondary flex-item">The search for a revolution, for people, industry, and the world.</h3>
+      </div>
+      <img class="image-with-text grid-item" src="/imgfiles/kawahvillas/img/img_41.jpg"
+        alt="The search for a revolution, for people, industry, and the world.">
+      <div class="content-body grid-item flex flex-column">
+        <p class="text-secondary flex-item">
+          Nowadays, everything is moving fast and sometimes we don't even realize it. 
+          It's important to take a step back, once in a while, and rethink about our life and goals. 
+          Unfortunately for most people, it is very difficult to find the time to do it.
+          This is why a membership business model is much easier for many industries. 
+          It brings a peace of mind and a sense of security.
+        </p>
+        <p class="text-secondary flex-item">
+          Our brain is already filled with thousands of stimuli 
+          every second and we cannot remember everything. 
+          This is why we are here, our members can wake up one day and remember 
+          that they can book a trip at any moment if they want to. 
+          This is what we call freedom of travelling.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kawahvillas-explore-villas" class="section-spacing">
+    <div class="grid">
+      <div class="content content-with-background grid-item flex flex-column">
+        <h3 class="text-support flex-item">We have the perfect destination for your luxury vacation</h3>
+        <a href="/our-villas" class="button button-primary-positive text-bold">Explore Villas</a>
+      </div>
+    </div>
+  </section>
+</main>

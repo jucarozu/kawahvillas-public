@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="/imgfiles/kawahvillas/css/blog.css">
+
+<!-- Variables -->
+
+<eBD:VAR NAME="kawahvillasBlogPosts" DEFAULT="" />
+
+<!-- HTTP Request - Blog Posts: GET /posts -->
+
+<eBD:HTTPGET VAR="dataHttpGet" URL="#[eBDProject.get_env('WP_URL')]/wp-json/wp/v2/posts?_embed" />
+<eBD:DESERIALIZE VAR="dataDeserialize" VALUE="$dataHttpGet" FROM="JSON" />
+
+<eBD:FOREACH ARRAY="dataDeserialize" ITERATOR="post">
+	<eBD:SET VAR="postId" VALUE="@post{id}" />
+	<eBD:SET VAR="postSlug" VALUE="@post{slug}" />
+
+	<eBD:SET VAR="postEmbedded" VALUE="@post{_embedded}" />
+
+	<eBD:SET VAR="postFeaturedMedia" VALUE="@postEmbedded{wp:featuredmedia}" />
+	<eBD:SET VAR="postFeaturedMediaItem" VALUE="@postFeaturedMedia[0]" />
+	<eBD:SET VAR="postFeaturedImage" VALUE="@postFeaturedMediaItem{source_url}" />
+
+	<eBD:SET VAR="postTerm" VALUE="@postEmbedded{wp:term}" />
+	<eBD:SET VAR="postTermItem" VALUE="@postTerm[0]" />
+	<eBD:SET VAR="postTermItemCategory" VALUE="@postTermItem[0]" />
+	<eBD:SET VAR="postCategory" VALUE="@postTermItemCategory{name}" />
+
+	<eBD:SET VAR="postTitle" VALUE="@post{title}" />
+	<eBD:SET VAR="postTitleRendered" VALUE="@postTitle{rendered}" />
+
+	<eBD:SET VAR="postExcerpt" VALUE="@post{excerpt}" />
+	<eBD:SET VAR="postExcerptRendered" VALUE="@postExcerpt{rendered}" />
+
+	<eBD:SET VAR="kawahvillasBlogPosts" VALUE='
+		$kawahvillasBlogPosts
+
+		<div class="content content-with-background grid-item flex flex-column" style="background-image: url($postFeaturedImage)">
+			<span class="text-support text-bold border-primary">$postCategory</span>
+			<h3 class="text-support flex-item">$postTitleRendered</h3>
+			$postExcerptRendered
+			<a href="/blog-post/$postId/$postSlug" class="button button-support-positive text-bold flex-item">Read</a>
+		</div>
+	' />
+</eBD:FOREACH>
+
+<main>
+
+	<!-- HTML Section - Kawahvillas Blog Header -->
+
+	<section id="kawahvillas-blog-header" class="section-spacing">
+		<div class="grid">
+			<h1 class="text-primary grid-item">Kawah Villas Blog</h1>
+			<p class="text-secondary grid-item">Trips experiences for your next adventure</p>
+		</div>
+	</section>
+
+	<!-- HTML Section - Kawahvillas Blog Filters -->
+
+	<section id="kawahvillas-blog-filters">
+		<div class="grid">
+
+		</div>
+	</section>
+
+	<!-- HTML Section - Kawahvillas Blog Posts -->
+
+	<section id="kawahvillas-blog-posts" class="section-spacing">
+		<div class="grid">
+			<eBD:OUT VALUE="$kawahvillasBlogPosts" />
+		</div>
+	</section>
+
+</main>

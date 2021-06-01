@@ -1,0 +1,136 @@
+<link rel="stylesheet" href="/imgfiles/kawahvillas/css/blog-post.css">
+
+<!-- Variables -->
+
+<eBD:VAR NAME="kawahvillasRelatedPosts" DEFAULT="" />
+
+<!-- HTTP Params -->
+
+<eBD:SET VAR="postId" VALUE="#param1" />
+<eBD:SET VAR="postSlug" VALUE="#param2" />
+
+<!-- HTTP Request - Blog Post: GET /posts/id -->
+
+<eBD:HTTPGET VAR="dataHttpGet" URL="#[eBDProject.get_env('WP_URL')]/wp-json/wp/v2/posts/$postId?_embed" />
+<eBD:DESERIALIZE VAR="post" VALUE="$dataHttpGet" FROM="JSON" />
+
+<eBD:SET VAR="postEmbedded" VALUE="@post{_embedded}" />
+
+<eBD:SET VAR="postFeaturedMedia" VALUE="@postEmbedded{wp:featuredmedia}" />
+<eBD:SET VAR="postFeaturedMediaItem" VALUE="@postFeaturedMedia[0]" />
+<eBD:SET VAR="postFeaturedImage" VALUE="@postFeaturedMediaItem{source_url}" />
+
+<eBD:SET VAR="postTerm" VALUE="@postEmbedded{wp:term}" />
+<eBD:SET VAR="postTermItem" VALUE="@postTerm[0]" />
+<eBD:SET VAR="postTermItemCategory" VALUE="@postTermItem[0]" />
+<eBD:SET VAR="postCategory" VALUE="@postTermItemCategory{name}" />
+
+<eBD:SET VAR="postAuthor" VALUE="@postEmbedded{author}" />
+<eBD:SET VAR="postAuthorItem" VALUE="@postAuthor[0]" />
+<eBD:SET VAR="postAuthorName" VALUE="@postAuthorItem{name}" />
+
+<eBD:SET VAR="postTitle" VALUE="@post{title}" />
+<eBD:SET VAR="postTitleRendered" VALUE="@postTitle{rendered}" />
+
+<eBD:SET VAR="postContent" VALUE="@post{content}" />
+<eBD:SET VAR="postContentRendered" VALUE="@postContent{rendered}" />
+
+<eBD:SET VAR="postDate" VALUE="@post{date}" />
+
+<eBD:SET VAR="kawahvillasBanner" VALUE='
+	<div class="content content-with-background grid-item flex flex-column" style="background-image: url($postFeaturedImage)">
+		<span class="text-support text-bold border-primary">$postCategory</span>
+		<h1 class="text-support flex-item">$postTitleRendered</h1>
+		<div class="quote flex-item flex flex-row">
+			<span class="text-support">#[eBDDate.parse($postDate)]</span>
+		</div>
+	</div>
+' />
+
+<eBD:SET VAR="kawahvillasBlogPost" VALUE='
+	<div class="content grid-item flex flex-column">
+		<span class="text-primary">by $postAuthorName</span>
+		$postContentRendered
+	</div>
+' />
+
+<!-- HTTP Request - Related Posts: GET /posts -->
+
+<eBD:HTTPGET VAR="dataHttpGet" URL="#[eBDProject.get_env('WP_URL')]/wp-json/wp/v2/posts?_embed" />
+<eBD:DESERIALIZE VAR="dataDeserialize" VALUE="$dataHttpGet" FROM="JSON" />
+
+<eBD:FOREACH ARRAY="dataDeserialize" ITERATOR="relatedPost">
+	<eBD:SET VAR="relatedPostId" VALUE="@relatedPost{id}" />
+	<eBD:SET VAR="relatedPostSlug" VALUE="@relatedPost{slug}" />
+
+	<eBD:IF EXPR="$relatedPostId != $postId">
+		<eBD:SET VAR="relatedPostEmbedded" VALUE="@relatedPost{_embedded}" />
+
+		<eBD:SET VAR="relatedPostFeaturedMedia" VALUE="@relatedPostEmbedded{wp:featuredmedia}" />
+		<eBD:SET VAR="relatedPostFeaturedMediaItem" VALUE="@relatedPostFeaturedMedia[0]" />
+		<eBD:SET VAR="relatedPostBackgroundImage" VALUE="@relatedPostFeaturedMediaItem{source_url}" />
+
+		<eBD:SET VAR="relatedPostTerm" VALUE="@relatedPostEmbedded{wp:term}" />
+		<eBD:SET VAR="relatedPostTermItem" VALUE="@relatedPostTerm[0]" />
+		<eBD:SET VAR="relatedPostTermItemCategory" VALUE="@relatedPostTermItem[0]" />
+		<eBD:SET VAR="relatedPostCategory" VALUE="@relatedPostTermItemCategory{name}" />
+
+		<eBD:SET VAR="relatedPostTitle" VALUE="@relatedPost{title}" />
+		<eBD:SET VAR="relatedPostTitleRendered" VALUE="@relatedPostTitle{rendered}" />
+
+		<eBD:SET VAR="relatedPostExcerpt" VALUE="@relatedPost{excerpt}" />
+		<eBD:SET VAR="relatedPostExcerptRendered" VALUE="@relatedPostExcerpt{rendered}" />
+		
+		<eBD:SET VAR="kawahvillasRelatedPosts" VALUE='
+			$kawahvillasRelatedPosts
+
+			<div class="content content-with-background grid-item flex flex-column" style="background-image: url($relatedPostBackgroundImage)">
+				<span class="text-support text-bold border-primary">$relatedPostCategory</span>
+				<h3 class="text-support flex-item">$relatedPostTitleRendered</h3>
+				$relatedPostExcerptRendered
+				<a href="/blog-post/$relatedPostId/$relatedPostSlug" class="button button-support-positive text-bold flex-item">Read</a>
+			</div>
+		' />
+	</eBD:IF>
+</eBD:FOREACH>
+
+<main>
+
+	<!-- HTML Section - Kawahvillas Banner -->
+
+	<section id="kawahvillas-banner">
+		<div class="grid">
+			<eBD:OUT VALUE="$kawahvillasBanner" />
+		</div>
+	</section>
+
+	<!-- HTML Section - Kawahvillas Blog Post -->
+
+	<section id="kawahvillas-blog-post" class="section-spacing">
+		<div class="grid">
+			<eBD:OUT VALUE="$kawahvillasBlogPost" />
+		</div>
+	</section>
+
+	<!-- HTML Section - Kawahvillas Related Posts -->
+
+	<section id="kawahvillas-related-posts" class="section-spacing">
+		<div class="grid">
+			<h2 class="text-secondary grid-item">Related Stories</h2>
+		</div>
+		<div class="carousel">
+			<button aria-label="Prev" class="carousel-prev">
+				<i class="fas fa-chevron-left"></i>
+			</button>
+
+			<div class="carousel-list">
+				<eBD:OUT VALUE="$kawahvillasRelatedPosts" />
+			</div>
+
+			<button aria-label="Next" class="carousel-next">
+				<i class="fas fa-chevron-right"></i>
+			</button>
+		</div>
+	</section>
+
+</main>

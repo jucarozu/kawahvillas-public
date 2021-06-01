@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="/imgfiles/kawahvillas/css/utilities/successful.css">
+
+<main>
+  <section id="kawahvillas-successful-message" class="section-spacing">
+    <div class="grid">
+      <div class="content grid-item flex flex-column">
+        <i class="fas fa-check text-primary text-bold"></i>
+        <h2 class="text-primary flex-item">Booking requested successfully</h2>
+        <a href="/" class="button button-primary-negative text-bold">Return to homepage</a>
+      </div>
+    </div>
+  </section>
+</main>

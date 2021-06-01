@@ -1,0 +1,131 @@
+<link rel="stylesheet" href="/imgfiles/kawahvillas/css/villa.css">
+
+<!-- HTTP Params -->
+
+<eBD:SET VAR="villaId" VALUE="#param1" />
+<eBD:SET VAR="villaSlug" VALUE="#param2" />
+
+<!-- HTTP Request - Villas: GET /villas/id -->
+
+<eBD:HTTPGET VAR="dataHttpGet" URL="#[eBDProject.get_env('WP_URL')]/wp-json/wp/v2/st_rental/$villaId?_embed" />
+<eBD:DESERIALIZE VAR="villa" VALUE="$dataHttpGet" FROM="JSON" />
+
+<eBD:SET VAR="villaEmbedded" VALUE="@villa{_embedded}" />
+
+<eBD:SET VAR="villaFeaturedMedia" VALUE="@villaEmbedded{wp:featuredmedia}" />
+<eBD:SET VAR="villaFeaturedMediaItem" VALUE="@villaFeaturedMedia[0]" />
+<eBD:SET VAR="villaFeaturedImage" VALUE="@villaFeaturedMediaItem{source_url}" />
+
+<eBD:SET VAR="villaTitle" VALUE="@villa{title}" />
+<eBD:SET VAR="villaTitleRendered" VALUE="@villaTitle{rendered}" />
+
+<eBD:SET VAR="villaLocation" VALUE="@villa{location}" />
+
+<eBD:SET VAR="villaGuests" VALUE="@villa{guests}" />
+<eBD:SET VAR="villaBedrooms" VALUE="@villa{bedrooms}" />
+<eBD:SET VAR="villaBeds" VALUE="@villa{beds}" />
+<eBD:SET VAR="villaBathrooms" VALUE="@villa{bathrooms}" />
+
+<eBD:SET VAR="villaOverview" VALUE="@villa{overview}" />
+<eBD:SET VAR="villaFeatures" VALUE="@villa{features}" />
+<eBD:SET VAR="villaMap" VALUE="@villa{map}" />
+
+<main>
+
+	<!-- HTML Section - Kawahvillas Villa Gallery -->
+
+	<section id="kawahvillas-villa-gallery">
+		<div class="carousel">
+      <button aria-label="Prev" class="carousel-prev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <div class="carousel-list">
+        <eBD:SET VAR="villaGallery" VALUE="@villa{gallery_images}" />
+
+        <eBD:FOREACH KEYS="villaGallery" ITERATOR="villaGalleryItemId">
+          <eBD:SET VAR="villaGalleryItem" VALUE="@villaGallery{$villaGalleryItemId}" />
+          <eBD:SET VAR="villaGalleryImage" VALUE="@villaGalleryItem{guid}" />
+
+          <eBD:OUT VALUE='
+            <div class="content content-with-card-image flex flex-column" style="background-image: url($villaGalleryImage)">
+              <h3 class="text-support flex-item"></h3>
+            </div>
+          ' />
+        </eBD:FOREACH>
+      </div>
+
+      <button aria-label="Next" class="carousel-next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+	</section>
+
+	<!-- HTML Section - Kawahvillas Villa Information -->
+
+	<section id="kawahvillas-villa-information" class="section-spacing">
+		<div class="grid">
+      <article id="kawahvillas-villa-description">
+        <div class="description-text flex flex-column">
+          <span id="description-location" class="description-location text-secondary"><eBD:OUT VALUE="$villaLocation" /></span>
+          <h2 class="description-villa text-primary flex-item"><eBD:OUT VALUE="$villaTitleRendered" /></h2>
+          <div class="description-amenities flex-item flex">
+            <span class="description-guests text-secondary flex-item"><span class="text-bold"><eBD:OUT VALUE="$villaGuests" /></span> Guests</span>
+            <span class="description-bedrooms text-secondary flex-item"><span class="text-bold"><eBD:OUT VALUE="$villaBedrooms" /></span> Bedrooms</span>
+            <span class="description-beds text-secondary flex-item"><span class="text-bold"><eBD:OUT VALUE="$villaBeds" /></span> Beds</span>
+            <span class="description-bathrooms text-secondary flex-item"><span class="text-bold"><eBD:OUT VALUE="$villaBathrooms" /></span> Bathrooms</span>
+          </div>
+        </div>
+      </article>
+			
+      <article id="kawahvillas-villa-tabs">
+        <ul class="grid" data-tabs>
+          <li class="tab-overview grid-item"><a data-tabby-default href="#kawahvillas-villa-overview" class="text-secondary link">Overview</a></li>
+          <li class="tab-features grid-item"><a href="#kawahvillas-villa-features" class="text-secondary link">Features</a></li>
+          <li class="tab-location grid-item"><a href="#kawahvillas-villa-map" class="text-secondary link">Map</a></li>
+        </ul>
+      </article>
+        
+      <article id="kawahvillas-villa-overview" class="grid-item">
+        <h3 class="text-primary flex-item">Overview</h3>
+        <eBD:OUT VALUE="$villaOverview" />
+      </article>
+
+      <article id="kawahvillas-villa-features" class="grid-item">
+        <h3 class="text-primary flex-item">Features and Amenities</h3>
+        <eBD:OUT VALUE="$villaFeatures" />
+      </article>
+
+      <article id="kawahvillas-villa-map" class="grid-item">
+        <h3 class="text-primary flex-item">Map</h3>
+        <eBD:OUT VALUE="$villaMap" />
+      </article>
+
+			<article id="kawahvillas-villa-booking">
+				<div class="flex flex-column">
+					<h3 class="text-primary flex-item">Book your trip</h3>
+					<p class="text-secondary flex-item">Select your check-in and check-out dates</p>
+					<div id="kawahvillas-villa-calendar"></div>
+					<p class="text-secondary flex-item">Interested on this villa?</p>
+
+					<eBD:IF EXPR="%authToken != ''">
+						<eBD:IF EXPR="%stripeSubscriptionStatus == 'active'">
+							<button class="button button-primary-negative text-bold flex-item" id="btnBookRequest">Book Request Now</button>
+							<eBD:ELSE>
+								<a href="/request-successful"
+									class="button button-primary-negative text-bold flex-item">Book Request Now</a>
+							</eBD:ELSE>
+						</eBD:IF>
+						<eBD:ELSE>
+							<a href="/auth/sign-up" class="button button-primary-negative text-bold flex-item">Book
+								Request Now</a>
+						</eBD:ELSE>
+					</eBD:IF>
+				</div>
+			</article>
+		</div>
+	</section>
+
+</main>
+
+<script defer src="/imgfiles/kawahvillas/js/villa.js"></script>

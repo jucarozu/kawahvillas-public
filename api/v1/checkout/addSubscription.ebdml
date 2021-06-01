@@ -1,0 +1,17 @@
+<!-- API Endpoint Arguments -->
+
+<eBD:ARGS NAME="membership" DEFAULT="" />
+
+<!-- API Endpoint Variables -->
+
+<eBD:VAR NAME="res" DEFAULT="" />
+
+<!-- API Endpoint Logic -->
+
+<eBD:USE LIB="checkout" />
+<eBD:CALL FUNCTION="addSubscription" VAR="addSubscriptionResponse" membership="$membership" />
+<eBD:SET VAR="res" VALUE="$addSubscriptionResponse" />
+
+<!-- API Endpoint Return -->
+
+<eBD:RETURN VALUE="$res" />

@@ -1,0 +1,88 @@
+<!-- Function Arguments -->
+
+<eBD:ARGS NAME="name" DEFAULT="" />
+<eBD:ARGS NAME="email" DEFAULT="" />
+<eBD:ARGS NAME="password" DEFAULT="" />
+<eBD:ARGS NAME="country" DEFAULT="" />
+<eBD:ARGS NAME="phone" DEFAULT="" />
+
+<!-- Function Variables -->
+
+<eBD:VAR NAME="res" DEFAULT="" />
+
+<!-- 1. User - Sign Up -->
+
+<eBD:SET VAR="userHttpRequestParams" 
+    VALUE="AUTH_KEY=#[eBDProject.get_env('WP_AUTH_KEY')]&display_name=$name&email=$email&password=$password" />
+
+<eBD:CURL REQUEST="POST" 
+    MSG="userHttpResponse" VAR="userHttpResponseStatus" DATA="$userHttpRequestParams" 
+    VALUE="#[eBDProject.get_env('WP_URL')]/?rest_route=/simple-jwt-login/v1/users" />
+
+<eBD:SPLIT ARRAY="userHttpResponseData" VALUE="$userHttpResponse" CHAR="\n{" />
+<eBD:SET VAR="userHttpResponseHeaders" VALUE="@userHttpResponseData[0]" />
+<eBD:SET VAR="userHttpResponseBody" VALUE="{@userHttpResponseData[1]" />
+<eBD:SET VAR="res" VALUE="$userHttpResponseBody" />
+
+<eBD:IF EXPR="$userHttpResponseStatus != 200">
+    <eBD:RETURN VALUE="$res" />
+</eBD:IF>
+
+<eBD:DESERIALIZE VAR="userDeserialize" VALUE="$userHttpResponseBody" FROM="JSON" />
+
+<eBD:SET VAR="userData" VALUE="@userDeserialize{user}" />
+
+<eBD:SET GLOBAL="userId" VALUE="@userData{ID}" />
+
+<!-- 2. Stripe Customer - Sign Up -->
+
+<eBD:SET VAR="stripeCustomerHttpRequestParams" 
+    VALUE="name=$name&email=$email&phone=$phone" />
+
+<eBD:CURL REQUEST="POST" 
+    MSG="stripeCustomerHttpResponse" VAR="stripeCustomerHttpResponseStatus" DATA="$stripeCustomerHttpRequestParams" 
+    VALUE="#[eBDProject.get_env('STRIPE_URL')]/customers" 
+    HEADER="Authorization: Bearer #[eBDProject.get_env('STRIPE_SECRET_KEY')]" />
+
+<eBD:SPLIT ARRAY="stripeCustomerHttpResponseData" VALUE="$stripeCustomerHttpResponse" CHAR="\n{" />
+<eBD:SET VAR="stripeCustomerHttpResponseHeaders" VALUE="@stripeCustomerHttpResponseData[0]" />
+<eBD:SET VAR="stripeCustomerHttpResponseBody" VALUE="{@stripeCustomerHttpResponseData[1]" />
+<eBD:SET VAR="res" VALUE="$stripeCustomerHttpResponseBody" />
+
+<eBD:IF EXPR="$stripeCustomerHttpResponseStatus != 200">
+    <eBD:RETURN VALUE="$res" />
+</eBD:IF>
+
+<eBD:DESERIALIZE VAR="stripeCustomerDeserialize" VALUE="$stripeCustomerHttpResponseBody" FROM="JSON" />
+
+<eBD:SET VAR="stripeCustomerId" VALUE="@stripeCustomerDeserialize{id}" />
+
+<!-- 3. Additional Services Customer - Sign Up -->
+
+<eBD:SET VAR="asCustomerHttpRequestParams" 
+    VALUE="wp_user_id=%userId&wp_user_country=$country&wp_user_phone=$phone&stripe_customer_id=$stripeCustomerId" />
+
+<eBD:CURL REQUEST="POST" 
+    MSG="asCustomerHttpResponse" VAR="asCustomerHttpResponseStatus" DATA="$asCustomerHttpRequestParams" 
+    VALUE="#[eBDProject.get_env('SERVICES_URL')]/customers/user" />
+
+<eBD:SPLIT ARRAY="asCustomerHttpResponseData" VALUE="$asCustomerHttpResponse" CHAR="\n{" />
+<eBD:SET VAR="asCustomerHttpResponseHeaders" VALUE="@asCustomerHttpResponseData[0]" />
+<eBD:SET VAR="asCustomerHttpResponseBody" VALUE="{@asCustomerHttpResponseData[1]" />
+<eBD:SET VAR="res" VALUE="$asCustomerHttpResponseBody" />
+
+<eBD:IF EXPR="$asCustomerHttpResponseStatus != 200">
+    <eBD:RETURN VALUE="$res" />
+</eBD:IF>
+
+<eBD:DESERIALIZE VAR="asCustomerDeserialize" VALUE="$asCustomerHttpResponseBody" FROM="JSON" />
+
+<!-- 4. User - Sign In -->
+
+<eBD:USE LIB="auth" />
+<eBD:CALL FUNCTION="signIn" VAR="signInResponse" email="$email" password="$password" />
+<eBD:SET VAR="res" VALUE="$signInResponse" />
+
+<!-- Function Return -->
+
+<eBD:RETURN VALUE="$res" />

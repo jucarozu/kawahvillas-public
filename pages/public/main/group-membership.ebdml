@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="/imgfiles/kawahvillas/css/group-membership.css">
+
+<main>
+	<section id="kawahvillas-banner">
+		<div class="grid">
+			<div class="content content-with-background grid-item flex flex-column">
+				<h1 class="text-support text-bold">SUBSCRIBE TO FAMILY/GROUP MEMBERSHIP</h1>
+				<h3 class="text-support">Moments that will be part of your life forever</h3>
+			</div>
+		</div>
+	</section>
+
+	<!-- <section id="kawahvillas-access" class="section-spacing">
+		<div class="grid">
+			<img class="image-with-text grid-item" src="/imgfiles/kawahvillas/img/img_24.jpg" alt="Access to our villas around the world">
+			<span class="line-border grid-item"></span>
+			<h2 class="text-secondary grid-item">Access to our villas around the world</h2>
+			<p class="text-secondary grid-item">
+				Once you become a member, you will be able to start booking
+				trips. All our villas have the highest quality because we want all
+				your expectations met. Our locations are in the most exotics
+				places in the world with astonishing amenities such as private
+				chefs, private pools, security service and more.
+			</p>
+		</div>
+	</section> -->
+
+	<section id="kawahvillas-trip" class="section-spacing">
+		<div class="grid">
+			<span class="line-border grid-item"></span>
+			<h2 class="text-secondary grid-item">Two active trips at a time, 5 days and 4 nights</h2>
+			<p class="text-secondary grid-item">
+				With a group membership, you can book trips for 5 days and 4 nights for as many people 
+				as our villas can accommodate. 
+				You also have the option to extend your stay. 
+				Members get unlimited trips, the only condition is you can only have two active trips.
+			</p>
+			<img class="image-with-text grid-item" src="/imgfiles/kawahvillas/img/img_25.jpg"
+        		alt="Two active trips at a time, 5 days and 4 nights">
+    	</div>
+	</section>
+
+	<section id="kawahvillas-guest" class="section-spacing">
+		<div class="grid">
+			<img class="image-with-text grid-item" src="/imgfiles/kawahvillas/img/img_26.jpg"
+        		alt="Invite a guest to share the experience with you">
+			<span class="line-border grid-item"></span>
+			<h2 class="text-secondary grid-item">Invite guests to share the experience with you</h2>
+			<p class="text-secondary grid-item">
+				The group membership is perfect for families and friends who want to share the experience together. 
+				You can invite as many people as our villas can accommodate. 
+				If you like to travel with your loved ones, this is perfect for you.
+			</p>
+		</div>
+	</section>
+
+	<section id="kawahvillas-nocontract" class="section-spacing">
+		<div class="grid">
+			<span class="line-border grid-item"></span>
+			<h2 class="text-secondary grid-item">No contract needed, cancel anytime</h2>
+			<p class="text-secondary grid-item">
+				If you feel like Kawah Villas is not for you anymore, 
+				you have the right to cancel your membership at any time.
+			</p>
+			<img class="image-with-text grid-item" src="/imgfiles/kawahvillas/img/img_27.jpg" alt="No contract needed, cancel anytime">
+    </div>
+	</section>
+
+	<section id="kawahvillas-subscription" class="section-spacing">
+		<div class="grid">
+			<div class="content grid-item flex flex-column">
+				<img class="logo-without-text flex-item" src="/imgfiles/kawahvillas/img/logo/kawahvillas_logo_without_text.svg"
+          			alt="Your next adventure is waiting, subscribe now!">
+				<h2 class="text-secondary flex-item">Your next adventure is waiting, subscribe now!</h2>
+			</div>
+		</div>
+	</section>
+
+	<section id="kawahvillas-group-membership" class="section-spacing">
+		<div class="grid">
+			<div class="card-group-membership grid-item flex flex-column">
+				<h3 class="text-secondary flex-item">Group/Family Membership</h3>
+				<div class="price flex-item flex flex-row">
+					<h4 class="text-secondary">$450</h4><span> /month</span>
+				</div>
+				<a href="/auth/sign-up" class="button button-primary-negative text-bold">Subscribe</a>
+			</div>
+		</div>
+	</section>
+
+	<section id="kawahvillas-live" class="section-spacing">
+		<div class="grid">
+			<div class="content grid-item flex flex-column">
+				<h2 class="text-secondary flex-item">Live new experiences with Kawah Villas.</h2>
+			</div>
+		</div>
+	</section>
+</main>

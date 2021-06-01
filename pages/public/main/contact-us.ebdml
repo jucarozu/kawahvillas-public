@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="/imgfiles/kawahvillas/css/contact-us.css">
+
+<main>
+	<section id="kawahvillas-contact-header" class="section-spacing">
+		<div class="grid">
+			<h1 class="text-primary grid-item">We are ready to help you!</h1>
+			<p class="text-secondary grid-item">
+				If you need help with something, or you need more information, get in touch with us!
+			</p>
+		</div>
+	</section>
+
+	<section id="kawahvillas-contact-help" class="section-spacing">
+		<div class="grid">
+			<div id="card-help-1" class="card-help grid-item flex flex-column">
+				<i class="fas fa-phone-volume text-primary flex-item"></i>
+				<h5 class="text-support flex-item">Call us now</h5>
+				<span class="text-support flex-item">+1 232 6895 9895</span>
+			</div>
+			<div id="card-help-2" class="card-help grid-item flex flex-column">
+				<i class="far fa-envelope text-primary flex-item"></i>
+				<h5 class="text-support flex-item">Send us a mail</h5>
+				<span class="text-support flex-item">info@kawahvillas.com</span>
+			</div>
+			<div id="card-help-3" class="card-help grid-item flex flex-column">
+				<i class="far fa-comments text-primary flex-item"></i>
+				<h5 class="text-support flex-item">Chat with us</h5>
+				<span class="text-support flex-item">08:00 am - 06:00 pm</span>
+			</div>
+		</div>
+	</section>
+
+	<form id="kawahvillas-contact-form" class="section-spacing">
+		<div class="grid">
+			<h2 class="text-secondary grid-item">Send us a message</h2>
+			<input type="text" class="contact-name grid-item" name="contact-name" value="" placeholder="Name" />
+			<input type="email" class="contact-email grid-item" name="contact-email" value="" placeholder="Email" />
+			<input type="text" class="contact-message grid-item" name="contact-message" value="" placeholder="Message" />
+			<input type="submit" class="button button-primary-negative grid-item" value="Send">
+		</div>
+	</form>
+</main>

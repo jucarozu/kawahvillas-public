@@ -1,0 +1,132 @@
+/* #region Mobile Styles */
+
+#kawahvillas-search-header {
+  background-color: var(--support);
+}
+
+#kawahvillas-search-header h1 {
+  grid-column: 3 / span 8;
+  font-size: 3.5em;
+}
+
+#kawahvillas-search-filters {
+  background-color: var(--support);
+}
+
+#kawahvillas-search-filters input {
+  padding: 1em;
+  margin: 0.5em 0;
+  border: 1px solid var(--secondary);
+}
+
+#kawahvillas-search-filters .search-location {
+  grid-column: 2 / span 10;
+  grid-row: 1 / 2;
+}
+
+#kawahvillas-search-filters .search-checkin {
+  grid-column: 2 / span 5;
+  grid-row: 2 / 3;
+  margin-right: 0.5em;
+}
+
+#kawahvillas-search-filters .search-checkout {
+  grid-column: 7 / span 5;
+  grid-row: 2 / 3;
+  margin-left: 0.5em;
+}
+
+#kawahvillas-search-villas .content {
+  grid-column: 2 / span 10;
+  padding: 1em 2em;
+  margin: 0 0 4em 0;
+  border: 1px solid var(--secondary);
+  background-color: var(--support);
+}
+
+#kawahvillas-search-villas .content .result-text .result-villa {
+  font-size: 3em;
+}
+
+#kawahvillas-search-villas .content .result-text .result-location {
+  font-size: 1.5em;
+}
+
+#kawahvillas-search-villas .content .result-text .result-amenities {
+  font-size: 1.25em;
+}
+
+#kawahvillas-search-villas .content .result-text .result-guests {
+  grid-column: 1 / span 6;
+}
+
+#kawahvillas-search-villas .content .result-text .result-bedrooms {
+  grid-column: 7 / span 6;
+}
+
+#kawahvillas-search-villas .content .result-text .result-beds {
+  grid-column: 1 / span 6;
+}
+
+#kawahvillas-search-villas .content .result-text .result-bathrooms {
+  grid-column: 7 / span 6;
+}
+
+/* #endregion */
+
+/* #region Laptop Styles */
+
+@media screen and (min-width: 1024px) {
+  #kawahvillas-search-header h1 {
+    grid-column: 25 / span 66;
+    font-size: 3.5em;
+  }
+  
+  #kawahvillas-search-filters .search-location {
+    grid-column: 13 / span 76;
+    grid-row: 1 / 2;
+  }
+  
+  #kawahvillas-search-filters .search-checkin {
+    grid-column: 93 / span 37;
+    grid-row: 1 / 2;
+  }
+  
+  #kawahvillas-search-filters .search-checkout {
+    grid-column: 132 / span 37;
+    grid-row: 1 / 2;
+  }
+  
+  #kawahvillas-search-villas .content {
+    grid-column: 13 / span 156;
+    flex-direction: row;
+  }
+
+  #kawahvillas-search-villas .content .result-image {
+    width: 50%;
+    padding-right: 2em;
+  }
+
+  #kawahvillas-search-villas .content .result-text {
+    width: 50%;
+    padding-left: 2em;
+  }
+
+  #kawahvillas-search-villas .content .result-text .result-guests {
+    grid-column: 1 / span 90;
+  }
+  
+  #kawahvillas-search-villas .content .result-text .result-bedrooms {
+    grid-column: 91 / span 90;
+  }
+  
+  #kawahvillas-search-villas .content .result-text .result-beds {
+    grid-column: 1 / span 90;
+  }
+  
+  #kawahvillas-search-villas .content .result-text .result-bathrooms {
+    grid-column: 91 / span 90;
+  }
+}
+
+/* #endregion */

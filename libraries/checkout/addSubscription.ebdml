@@ -1,0 +1,37 @@
+<!-- Function Arguments -->
+
+<eBD:ARGS NAME="membership" DEFAULT="" />
+
+<!-- Function Variables -->
+
+<eBD:VAR NAME="res" DEFAULT="" />
+
+<!-- 1. Subscription - Create -->
+
+<eBD:SET VAR="subscriptionHttpRequestParams" 
+    VALUE="customer=%stripeCustomerId&items[0][price]=$membership&payment_behavior=default_incomplete&expand[]=latest_invoice.payment_intent" />
+
+<eBD:CURL REQUEST="POST" 
+    MSG="subscriptionHttpResponse" VAR="subscriptionHttpResponseStatus" DATA="$subscriptionHttpRequestParams" 
+    VALUE="#[eBDProject.get_env('STRIPE_URL')]/subscriptions" 
+    HEADER="Authorization: Bearer #[eBDProject.get_env('STRIPE_SECRET_KEY')]" />
+
+<eBD:SPLIT ARRAY="subscriptionHttpResponseData" VALUE="$subscriptionHttpResponse" CHAR="\n{" />
+<eBD:SET VAR="subscriptionHttpResponseHeaders" VALUE="@subscriptionHttpResponseData[0]" />
+<eBD:SET VAR="subscriptionHttpResponseBody" VALUE="{@subscriptionHttpResponseData[1]" />
+<eBD:SET VAR="res" VALUE="$subscriptionHttpResponseBody" />
+
+<eBD:IF EXPR="$subscriptionHttpResponseStatus != 200">
+    <eBD:RETURN VALUE="$res" />
+</eBD:IF>
+
+<eBD:DESERIALIZE VAR="subscriptionDeserialize" VALUE="$subscriptionHttpResponseBody" FROM="JSON" />
+
+<eBD:SET VAR="subscriptionLatestInvoice" VALUE="@subscriptionDeserialize{latest_invoice}" />
+<eBD:SET VAR="subscriptionPaymentIntent" VALUE="@subscriptionLatestInvoice{payment_intent}" />
+
+<eBD:SET GLOBAL="stripeClientSecret" VALUE="@subscriptionPaymentIntent{client_secret}" />
+
+<!-- Function Return -->
+
+<eBD:RETURN VALUE="$res" />

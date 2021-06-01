@@ -1,0 +1,389 @@
+/* #region Mobile Styles */
+
+#kawahvillas-banner {
+  background-color: var(--support);
+}
+
+#kawahvillas-banner .content {
+  grid-column: 2 / span 10;
+  align-items: stretch;
+  justify-content: flex-end;
+  padding: 0 4em 4em 2em;
+  box-shadow: inset 0 -20em 10em -10em var(--secondary);
+  background-image: url("/imgfiles/kawahvillas/img/img_6.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 40%;
+  background-size: cover;
+}
+
+#kawahvillas-exploration {
+  grid-template-rows: auto;
+  background-color: var(--support);
+}
+
+#kawahvillas-exploration .logo-without-text {
+  grid-column: 3 / span 8;
+  grid-row: 1 / 2;
+  width: 8em;
+}
+
+#kawahvillas-exploration h2 {
+  grid-column: 3 / span 8;
+  grid-row: 2 / 3;
+}
+
+#kawahvillas-exploration .image-with-text {
+  grid-column: 3 / span 8;
+  grid-row: 3 / 4;
+}
+
+#kawahvillas-exploration p {
+  grid-column: 3 / span 8;
+  grid-row: 4 / 5;
+}
+
+#kawahvillas-exploration .line-border {
+  grid-column: 3 / span 8;
+  grid-row: 5 / 6;
+  margin: 0 0 2em 0;
+  border-bottom: 1px solid var(--primary);
+}
+
+#kawahvillas-memberships-primary {
+  grid-template-rows: auto;
+  background-color: var(--support);
+}
+
+#kawahvillas-memberships-primary .header {
+  grid-column: 3 / span 8;
+  grid-row: 1 / 2;
+  align-items: center;
+}
+
+#kawahvillas-memberships-primary .card-membership {
+  text-align: center;
+  padding: 1em 2em 3em 2em;
+  margin: 2em 0;
+  border: 1px solid var(--primary);
+  background-color: var(--support);
+}
+
+#kawahvillas-memberships-primary .card-membership h3 {
+  padding: 1em 0.5em;
+}
+
+#kawahvillas-memberships-primary .card-membership .price {
+  align-items: flex-end;
+  justify-content: center;
+}
+
+#kawahvillas-memberships-primary .card-membership h4 {
+  font-size: 4em;
+  font-weight: 300;
+}
+
+#kawahvillas-memberships-primary .card-membership span {
+  font-size: 1.2em;
+  padding-bottom: 0.2em;
+}
+
+#kawahvillas-memberships-primary .card-membership ul {
+  max-height: 150vmin;
+}
+
+#kawahvillas-memberships-primary .card-membership ul li {
+  line-height: 1.5em;
+  text-align: left;
+}
+
+#kawahvillas-memberships-primary .card-membership ul li .fa-check {
+  color: var(--primary);
+}
+
+#kawahvillas-memberships-primary .card-membership a {
+  margin: auto auto 0 auto;
+}
+
+#kawahvillas-memberships-primary #card-membership-1 {
+  grid-column: 3 / span 8;
+  grid-row: 2 / 3;
+}
+
+#kawahvillas-memberships-primary #card-membership-2 {
+  grid-column: 3 / span 8;
+  grid-row: 3 / 4;
+}
+
+#kawahvillas-memberships-primary #card-membership-3 {
+  grid-column: 3 / span 8;
+  grid-row: 4 / 5;
+}
+
+#kawahvillas-faq {
+  background-color: var(--secondary);
+  padding: 4em 0;
+}
+
+#kawahvillas-faq .grid {
+  grid-template-rows: auto;
+}
+
+#kawahvillas-faq h2 {
+  grid-column: 3 / span 8;
+  grid-row: 1 / 2;
+}
+
+#kawahvillas-faq .line-border {
+  margin: 2em 0;
+  border-bottom: 1px solid var(--primary);
+}
+
+#kawahvillas-faq .tabs {
+  grid-column: 3 / span 8;
+  grid-row: 2 / 3;
+  overflow: hidden;
+}
+
+#kawahvillas-faq .tabs .tab {
+  justify-content: flex-start;
+  width: 100%;
+  overflow: hidden;
+}
+
+#kawahvillas-faq .tabs .tab .tab-radio {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+#kawahvillas-faq .tabs .tab .tab-label {
+  font-size: 1.4em;
+  padding: 1em 0;
+  cursor: pointer;
+}
+
+#kawahvillas-faq .tabs .tab .tab-label::before {
+  content: "\276F";
+  text-align: center;
+  height: 1em;
+  width: 1em;
+  padding: 0 1em;
+  color: var(--primary);
+  transition: all .35s;
+}
+
+#kawahvillas-faq .tabs .tab .tab-radio:checked ~ .tab-label::before {
+  padding: 0 1em;
+  transform: rotate(90deg);
+}
+
+#kawahvillas-faq .tabs .tab .tab-content {
+  max-height: 0;
+  padding: 0 1em;
+  transition: all .35s;
+}
+
+#kawahvillas-faq .tabs .tab .tab-content img {
+  max-height: 100vmin;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+#kawahvillas-faq .tabs .tab .tab-radio:checked ~ .tab-content {
+  max-height: 500vmin;
+}
+
+#kawahvillas-faq .image-with-text {
+  display: none;
+}
+
+#kawahvillas-destinations {
+  background-color: var(--support);
+}
+
+#kawahvillas-destinations .header {
+  grid-column: 3 / span 8;
+  grid-row: 1 / 2;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#kawahvillas-destinations .header img {
+  width: 8em;
+}
+
+#kawahvillas-destinations .card-location {
+  align-items: stretch;
+  justify-content: flex-end;
+  margin: 2em 0;
+  box-shadow: inset 0 -15em 10em -10em var(--secondary);
+}
+
+#kawahvillas-destinations .card-location h3 {
+  padding: 1.5rem;
+}
+
+#kawahvillas-destinations .card-location p {
+  padding: 1.5rem;
+}
+
+#kawahvillas-destinations #card-location-1 {
+  grid-column: 3 / span 8;
+  grid-row: 2 / 3;
+  background-image: url("/imgfiles/kawahvillas/img/img_35.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 40%;
+  background-size: cover;
+}
+
+#kawahvillas-destinations #card-location-2 {
+  grid-column: 3 / span 8;
+  grid-row: 3 / 4;
+  background-image: url("/imgfiles/kawahvillas/img/img_36.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 40%;
+  background-size: cover;
+}
+
+#kawahvillas-destinations #card-location-3 {
+  grid-column: 3 / span 8;
+  grid-row: 4 / 5;
+  background-image: url("/imgfiles/kawahvillas/img/img_37.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 40%;
+  background-size: cover;
+}
+
+#kawahvillas-destinations #card-location-4 {
+  grid-column: 3 / span 8;
+  grid-row: 5 / 6;
+  background-image: url("/imgfiles/kawahvillas/img/img_38.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 40%;
+  background-size: cover;
+}
+
+/* #endregion */
+
+/* #region Laptop Styles */
+
+@media screen and (min-width: 1024px) {
+  #kawahvillas-banner .content {
+    grid-column: 13 / span 156;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-shadow: none;
+  }
+  
+  #kawahvillas-exploration .image-with-text {
+    grid-area: 1 / 25 / span 3 / span 62;
+  }
+  
+  #kawahvillas-exploration .logo-without-text {
+    grid-column: 95 / span 62;
+    grid-row: 1 / 2;
+  }
+  
+  #kawahvillas-exploration h2 {
+    grid-column: 95 / span 62;
+    grid-row: 2 / 3;
+  }
+
+  #kawahvillas-exploration p {
+    grid-column: 95 / span 62;
+    grid-row: 3 / 4;
+  }
+
+  #kawahvillas-exploration .line-border {
+    display: none;
+  }
+
+  #kawahvillas-memberships-primary .header {
+    grid-column: 33 / span 116;
+    grid-row: 1 / 2;
+    text-align: center;
+  }
+
+  #kawahvillas-memberships-primary .header p {
+    padding: 1em 8em;
+  }
+  
+  #kawahvillas-memberships-primary #card-membership-1 {
+    grid-column: 25 / span 40;
+    grid-row: 2 / 3;
+  }
+  
+  #kawahvillas-memberships-primary #card-membership-2 {
+    grid-column: 71 / span 40;
+    grid-row: 2 / 3;
+  }
+  
+  #kawahvillas-memberships-primary #card-membership-3 {
+    grid-column: 117 / span 40;
+    grid-row: 2 / 3;
+  }
+
+  #kawahvillas-faq {
+    padding: 0;
+  }
+  
+  #kawahvillas-faq h2 {
+    grid-column: 13 / span 66;
+    grid-row: 1 / 2;
+    padding: 2em 2em 0 0;
+  }
+  
+  #kawahvillas-faq .tabs {
+    grid-column: 13 / span 66;
+    grid-row: 2 / 3;
+    font-size: 0.8em;
+    padding: 0 2em 2em 0;
+  }
+  
+  #kawahvillas-faq .tabs .tab .tab-content img {
+    display: none;
+  }
+
+  #kawahvillas-faq .image-with-text {
+    display: flex;
+    grid-area: 1 / 91 / span 2 / span 90;
+  }
+
+  #kawahvillas-destinations .header {
+    grid-column: 33 / span 116;
+    grid-row: 1 / 2;
+  }
+
+  #kawahvillas-destinations .header p {
+    padding: 1em 8em;
+  }
+
+  #kawahvillas-destinations .card-location {
+    box-shadow: inset 0 -20em 10em -10em var(--secondary);
+  }
+
+  #kawahvillas-destinations #card-location-1 {
+    grid-column: 13 / span 36;
+    grid-row: 2 / 3;
+  }
+  
+  #kawahvillas-destinations #card-location-2 {
+    grid-column: 53 / span 36;
+    grid-row: 2 / 3;
+  }
+  
+  #kawahvillas-destinations #card-location-3 {
+    grid-column: 93 / span 36;
+    grid-row: 2 / 3;
+  }
+
+  #kawahvillas-destinations #card-location-4 {
+    grid-column: 133 / span 36;
+    grid-row: 2 / 3;
+  }
+}
+
+/* #endregion */

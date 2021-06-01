@@ -1,0 +1,85 @@
+<!-- Function Arguments -->
+
+<eBD:ARGS NAME="email" DEFAULT="" />
+<eBD:ARGS NAME="password" DEFAULT="" />
+
+<!-- Function Variables -->
+
+<eBD:VAR NAME="res" DEFAULT="" />
+
+<!-- 1. User - Authentication -->
+
+<eBD:SET VAR="authHttpRequestParams" 
+    VALUE="email=$email&password=$password" />
+
+<eBD:CURL REQUEST="POST" 
+    MSG="authHttpResponse" VAR="authHttpResponseStatus" DATA="$authHttpRequestParams" 
+    VALUE="#[eBDProject.get_env('WP_URL')]/?rest_route=/simple-jwt-login/v1/auth" />
+
+<eBD:SPLIT ARRAY="authHttpResponseData" VALUE="$authHttpResponse" CHAR="\n{" />
+<eBD:SET VAR="authHttpResponseHeaders" VALUE="@authHttpResponseData[0]" />
+<eBD:SET VAR="authHttpResponseBody" VALUE="{@authHttpResponseData[1]" />
+<eBD:SET VAR="res" VALUE="$authHttpResponseBody" />
+
+<eBD:IF EXPR="$authHttpResponseStatus != 200">
+    <eBD:RETURN VALUE="$res" />
+</eBD:IF>
+
+<eBD:DESERIALIZE VAR="authDeserialize" VALUE="$authHttpResponseBody" FROM="JSON" />
+
+<eBD:SET VAR="authData" VALUE="@authDeserialize{data}" />
+
+<eBD:SET GLOBAL="authToken" VALUE="@authData{jwt}" />
+
+<!-- 2. User - Validation -->
+
+<eBD:CURL REQUEST="GET" 
+    MSG="userHttpResponse" VAR="userHttpResponseStatus" 
+    VALUE="#[eBDProject.get_env('WP_URL')]/?rest_route=/simple-jwt-login/v1/auth/validate&JWT=%authToken" />
+
+<eBD:SPLIT ARRAY="userHttpResponseData" VALUE="$userHttpResponse" CHAR="\n{" />
+<eBD:SET VAR="userHttpResponseHeaders" VALUE="@userHttpResponseData[0]" />
+<eBD:SET VAR="userHttpResponseBody" VALUE="{@userHttpResponseData[1]" />
+<eBD:SET VAR="res" VALUE="$userHttpResponseBody" />
+
+<eBD:IF EXPR="$userHttpResponseStatus != 200">
+    <eBD:RETURN VALUE="$res" />
+</eBD:IF>
+
+<eBD:DESERIALIZE VAR="userDeserialize" VALUE="$userHttpResponseBody" FROM="JSON" />
+
+<eBD:SET VAR="userData" VALUE="@userDeserialize{data}" />
+<eBD:SET VAR="userDataItem" VALUE="@userData{user}" />
+
+<eBD:SET GLOBAL="userId" VALUE="@userDataItem{ID}" />
+<eBD:SET GLOBAL="userName" VALUE="@userDataItem{display_name}" />
+<eBD:SET GLOBAL="userEmail" VALUE="@userDataItem{user_email}" />
+
+<!-- 3. Additional Services Customer - Get -->
+
+<eBD:CURL REQUEST="GET" 
+    MSG="asCustomerHttpResponse" VAR="asCustomerHttpResponseStatus" 
+    VALUE="#[eBDProject.get_env('SERVICES_URL')]/customers/user?wp_user_id=%userId" />
+
+<eBD:SPLIT ARRAY="asCustomerHttpResponseData" VALUE="$asCustomerHttpResponse" CHAR="\n{" />
+<eBD:SET VAR="asCustomerHttpResponseHeaders" VALUE="@asCustomerHttpResponseData[0]" />
+<eBD:SET VAR="asCustomerHttpResponseBody" VALUE="{@asCustomerHttpResponseData[1]" />
+
+<eBD:IF EXPR="$asCustomerHttpResponseStatus != 200">
+    <eBD:RETURN VALUE="$res" />
+</eBD:IF>
+
+<eBD:DESERIALIZE VAR="asCustomerDeserialize" VALUE="$asCustomerHttpResponseBody" FROM="JSON" />
+
+<eBD:SET GLOBAL="userCountry" VALUE="@asCustomerDeserialize{wp_user_country}" />
+<eBD:SET GLOBAL="userPhone" VALUE="@asCustomerDeserialize{wp_user_phone}" />
+<eBD:SET GLOBAL="userStatus" VALUE="@asCustomerDeserialize{wp_user_status}" />
+
+<eBD:SET GLOBAL="stripeCustomerId" VALUE="@asCustomerDeserialize{stripe_customer_id}" />
+<eBD:SET GLOBAL="stripeProductId" VALUE="@asCustomerDeserialize{stripe_product_id}" />
+<eBD:SET GLOBAL="stripeSubscriptionId" VALUE="@asCustomerDeserialize{stripe_subscription_id}" />
+<eBD:SET GLOBAL="stripeSubscriptionStatus" VALUE="@asCustomerDeserialize{stripe_subscription_status}" />
+
+<!-- Function Return -->
+
+<eBD:RETURN VALUE="$res" />

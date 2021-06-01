@@ -1,0 +1,98 @@
+<!-- HTTP Params -->
+
+<eBD:SET VAR="authAction" VALUE="#param1" />
+
+<main class="grid">
+    <eBD:IF EXPR="$authAction == 'sign-in'">
+        <section id="kawahvillas-auth-sign-in-slogan">
+            <p class="text-support flex-item">Access to your account, and book the villa for your next adventure</p>
+        </section>
+        <eBD:ELSE>
+            <section id="kawahvillas-auth-sign-in-slogan" style="display: none;">
+                <p class="text-support flex-item">Access to your account, and book the villa for your next adventure</p>
+            </section>
+        </eBD:ELSE>
+    </eBD:IF>
+
+    <eBD:IF EXPR="$authAction == 'sign-up'">
+        <section id="kawahvillas-auth-sign-up-slogan">
+            <p class="text-support flex item">Create your account, select your membership and start to travel</p>
+        </section>
+        <eBD:ELSE>
+            <section id="kawahvillas-auth-sign-up-slogan" style="display: none;">
+                <p class="text-support flex item">Create your account, select your membership and start to travel</p>
+            </section>
+        </eBD:ELSE>
+    </eBD:IF>
+
+	<section id="kawahvillas-auth-footer">
+		<span class="text-support flex-item">&copy; 2021 Kawahvillas. All rights reserved.</span>
+	</section>
+
+	<section id="kawahvillas-auth-logo" class="grid-item flex flex-row">
+		<a href="/" title="Kawahvillas - Luxury Travelling" class="logo link flex-item">
+			<img src="/imgfiles/kawahvillas/img/logo/kawahvillas_logo_positive.svg" alt="Kawahvillas - Luxury Travelling" />
+        </a>
+	</section>
+
+	<section id="kawahvillas-auth-return" class="grid-item flex flex-row">
+		<a href="/" class="text-secondary link flex-item">
+			<i class="fas fa-arrow-left text-primary"></i> &nbsp;Return to homepage
+		</a>
+	</section>
+
+	<section id="kawahvillas-auth-tabs" class="flex flex-row">
+		<ul class="flex-item grid" data-tabs>
+			<li class="tab-sign-in grid-item">
+				<eBD:IF EXPR="$authAction == 'sign-in'">
+					<a data-tabby-default href="#kawahvillas-auth-sign-in" class="text-secondary link">Sign In</a>
+					<eBD:ELSE>
+						<a href="#kawahvillas-auth-sign-in" class="text-secondary link">Sign In</a>
+					</eBD:ELSE>
+				</eBD:IF>
+			</li>
+			<li class="tab-sign-up grid-item">
+				<eBD:IF EXPR="$authAction == 'sign-up'">
+					<a data-tabby-default href="#kawahvillas-auth-sign-up" class="text-secondary link">Register</a>
+					<eBD:ELSE>
+						<a href="#kawahvillas-auth-sign-up" class="text-secondary link">Register</a>
+					</eBD:ELSE>
+				</eBD:IF>
+			</li>
+		</ul>
+	</section>
+
+	<form id="kawahvillas-auth-sign-in">
+		<input type="email" class="email flex-item" id="signInEmail" name="email" placeholder="Email" required autofocus />
+		<input type="password" class="password flex-item" id="signInPassword" name="password" placeholder="Password" required />
+		<div class="auth-recovery flex-item flex flex-row">
+			<div class="auth-remember flex-item flex flex-row">
+				<input type="checkbox" class="remember" name="remember" id="remember" />
+				<label for="remember">&nbsp; Remember me</label>
+			</div>
+			<a href="#" class="text-secondary link flex-item">Forgot Password?</a>
+		</div>
+		<div class="auth-error flex-item flex flex-row">
+            <span class="flex-item" id="sign-in-message-error" style="display: none;"></span>
+        </div>
+		<input type="submit" class="button button-secondary-negative flex-item" id="btnSignIn" value="SIGN IN" />
+    </form>
+
+    <form id="kawahvillas-auth-sign-up">
+        <input type="text" class="name flex-item" id="signUpName" name="name" placeholder="Name" required autofocus />
+        <input type="email" class="email flex-item" id="signUpEmail" name="email" placeholder="Email" required />
+        <input type="password" class="password flex-item" id="signUpPassword" name="password" placeholder="Password" required />
+        <select class="crs-country flex-item" id="signUpCountry" name="country" required></select>
+        <input type="tel" class="phone flex-item" id="signUpPhone" name="phone" required />
+        <div class="auth-privacy-policy flex-item flex flex-row">
+            <span class="privacy-policy flex-item">
+                We use your information to personalize your experience. 
+                By continuing, you are agreeing to Kawahvilla´s <a href="#" class="link">Privacy Policy.</a>
+            </span>
+        </div>
+		<div class="auth-error flex-item flex flex-row">
+            <span class="flex-item" id="sign-up-message-error" style="display: none;"></span>
+        </div>
+        <input type="submit" class="button button-secondary-negative flex-item" id="btnSignUp" value="NEXT" />
+    </form>
+</main>

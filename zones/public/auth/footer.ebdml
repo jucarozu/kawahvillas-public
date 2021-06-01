@@ -1,0 +1,13 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tabby/12.0.3/js/tabby.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/country-region-selector/0.5.1/crs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
+
+<script async src="/imgfiles/kawahvillas/js/utilities/tabs.js"></script>
+<script async src="/imgfiles/kawahvillas/js/utilities/intl-tel-input.js"></script>
+
+<script defer src="/imgfiles/kawahvillas/js/auth.js?v=1.0"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+.carousel {
+  position: relative;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  display: block;
+  border: none;
+  top: calc(50% - 2em);
+  cursor: pointer;
+  text-align: center;
+  background: none;
+  color: var(--secondary);
+  opacity: 20%;
+}
+
+.carousel-prev i,
+.carousel-next i {
+  font-size: 2em;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  opacity: 100%;
+}
+
+.carousel-prev {
+  left: 0.25em;
+}
+
+.carousel-next {
+  right: 0.25em;
+}
+
+.carousel-list {
+  margin: 0 3em;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 980px) {
+  .carousel-prev {
+    left: 5em;
+  }
+
+  .carousel-next {
+    right: 5em;
+  }
+
+  .carousel-list {
+    margin: 0 10em;
+  }
+}

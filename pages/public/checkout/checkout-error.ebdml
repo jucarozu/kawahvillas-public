@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/imgfiles/kawahvillas/css/utilities/error.css">
+
+<main>
+  <section id="kawahvillas-error-message" class="section-spacing">
+    <div class="grid">
+      <div class="content grid-item flex flex-column">
+        <i class="fas fa-times text-primary text-bold"></i>
+        <h2 class="text-primary flex-item">Payment could not be processed</h2>
+        <h3 class="text-secondary flex-item">An error occurred while processing the payment.</h3>
+        <p class="text-secondary flex-item">
+          Please verify your card details and try again.
+        </p>
+        <a href="/payment" class="button button-primary-negative text-bold">Return to payment</a>
+      </div>
+    </div>
+  </section>
+</main>
