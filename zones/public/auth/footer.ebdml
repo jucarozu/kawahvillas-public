@@ -6,7 +6,7 @@
 <script async src="/imgfiles/kawahvillas/js/utilities/tabs.js"></script>
 <script async src="/imgfiles/kawahvillas/js/utilities/intl-tel-input.js"></script>
 
-<script defer src="/imgfiles/kawahvillas/js/auth.js?v=1.0"></script>
+<script defer src="/imgfiles/kawahvillas/js/auth.js"></script>
 
 </body>
 

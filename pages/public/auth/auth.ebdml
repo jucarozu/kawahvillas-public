@@ -90,7 +90,7 @@
                 By continuing, you are agreeing to Kawahvilla´s <a href="#" class="link">Privacy Policy.</a>
             </span>
         </div>
-		<div class="auth-error flex-item flex flex-row">
+		    <div class="auth-error flex-item flex flex-row">
             <span class="flex-item" id="sign-up-message-error" style="display: none;"></span>
         </div>
         <input type="submit" class="button button-secondary-negative flex-item" id="btnSignUp" value="NEXT" />
